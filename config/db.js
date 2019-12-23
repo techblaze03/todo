@@ -1,6 +1,6 @@
 const mongoose =require('mongoose');
-// mongoose.connect('mongodb+srv://monu:xxx@cluster0-qysc2.mongodb.net/test?retryWrites=true&w=majority',{ useUnifiedTopology: true ,useNewUrlParser: true }) ;
-mongoose.connect('mongodb://localhost:27017/test',{useNewUrlParser:true,useUnifiedTopology:true})
+mongoose.connect('mongodb+srv://monu:xxx@cluster0-qysc2.mongodb.net/test?retryWrites=true&w=majority',{ useUnifiedTopology: true ,useNewUrlParser: true }) ;
+// mongoose.connect('mongodb://localhost:27017/test',{useNewUrlParser:true,useUnifiedTopology:true})
 
 mongoose.connection.on('open',(err)=>{
     if(err){
