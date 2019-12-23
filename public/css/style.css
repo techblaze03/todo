@@ -1,0 +1,18 @@
+.hidden{
+  display: none;
+}
+.done{
+  text-decoration: line-through;
+}
+form{
+  display: inline;
+  margin:0;
+  padding:0;
+
+}
+a:hover{
+  color:white;
+}
+a{
+  color: white;
+}

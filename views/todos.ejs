@@ -1,0 +1,62 @@
+<% include ./f/f %>
+
+<% include ./partials/header%>
+
+<body>
+
+    <div class="ui large menu">
+        <a class=" item" href="/">
+          Home
+        </a>
+        <div class="right menu">
+          </div>
+          <a class="ui item" href="/logout">
+              <div class="ui primary button">
+                LogOut
+              </div>
+          </a>
+        </div>
+      </div>
+
+    <h2 class="ui center aligned  header">Todos</h2>
+    <div class="ui raised  container">
+        <div>
+            <form action="/user/todos" method="POST" class="ui  form">
+                <div class="inline field">
+                    <label>Create New Task</label>
+                    <input type="text" placeholder="task description" name="task[desc]">
+                    <button class="ui primary button" type="Submit" onclick="clear()"> Add </button>
+                </div>
+            </form>
+        </div>
+        <div class="ui compact segment">
+            <div class="ui bulleted list ">
+                <% tasks.forEach((task)=>{%>
+                    <div class="item">
+                        <p id="<%= task._id%>desc" class="<%= (task.status==1)?'done':''%>">
+                            <%= task.desc%>
+                        </p>
+
+                        <form class="hidden" id="<%= task._id%>edit" action="/user/todos/<%= task._id%>?_method=PUT" method="POST">
+                            <input type="text" value="<%= task.desc%>" name="task[desc]">
+                            <button type="submit">Edit</button>
+                        </form>
+
+                        <div>
+                            <form action="/user/todos/<%= task._id%>?_method=PUT" method="POST">
+                                <input type="hidden" value="<%= (task.status==0)?1:0 %>" name="task[status]" >
+                                <button type="submit" onclick="done('<%= task._id%>desc')" >Done</button>
+                            </form>
+                                <button type="button" onclick="edit('<%= task._id%>edit')">Edit</button>
+                            <form action="/user/todos/<%= task._id%>?_method=DELETE" method="POST">
+                                <button>Del</button>
+                            </form>
+                        </div>
+                    </div>
+                <%})%>
+            </div>
+        </div>
+
+    </div>
+    <script src="/js/script.js"></script>
+    <% include ./partials/footer %>

@@ -1,0 +1,32 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+</head> -->
+<% include ./partials/header %>
+<body>  
+    <div class="ui header large aligned center">Todo Register </div>
+    <div class="ui container">
+    <form class="ui form " action="/register" method="POST">
+        <div class="field ">
+            <label for="">Username</label>
+            <input type="text" name="user[name]">
+        </div>
+        <div class="field">
+            <label for="">Password</label>
+            <div class="ui input">
+                <input id ="i1" type="password" name="user[password]">
+            </div>
+        </div>
+
+     
+
+        <button type="submit" class="ui primary button" >Sign Up</button>
+    </form>
+</div>
+
+
+<% include ./partials/footer%>
